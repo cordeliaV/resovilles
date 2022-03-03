@@ -212,8 +212,8 @@ with open(repertoire_GTFS+"stops.txt") as stops :
                 mode = route_type
         
         routes=str(liste_routes).strip() 
-        routes=routes.strip('[').strip(']') r
-        outes=routes.replace("'",'')
+        routes=routes.strip('[').strip(']')
+        routes=routes.replace("'",'')
 
         sortie_stops.write(stop_id+';'+stop_lat+';'+stop_lon+';'+mode+';'+ stop_name+';'+routes+'\n')
     sortie_stops.close()
