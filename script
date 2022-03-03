@@ -274,8 +274,8 @@ def calcul_EDF(dist,route_type,freq,v_map=1.1) :
         TAT=SAP+SWT+AWT #Calcul du Total Access Time
         EDF=30/TAT #Calcul du Equivalent Door Frequency 
     else:
-        EDF=0.0 #On choisit une valeur par défaut si le service n'est pas accessible r
-    eturn EDF
+        EDF=0.0 #On choisit une valeur par défaut si le service n'est pas accessible
+    return EDF
     
 for proj in projets_calcules :
     #Extraction des détails du projet calculé 
