@@ -7,10 +7,10 @@ Algorithme d'extraction des fichiers GTFS permettant, après un traitement exter
 
 #%% INITIALISATION print(" ----- ") import datetime import time
 from os import path as os_path
-repertoire = os_path.abspath(os_path.split(__file__)[0]) 
-repertoire_GTFS = repertoire + "\\Data brute\\gtfs\\" 
-repertoire_data_modifiee = repertoire + "\\Data modifiée\\" 
-repertoire_sorties = repertoire + "\\Résultats\\"
+repertoire = os_path.abspath(os_path.split(__file__)[0])  #retourne le répertoire dans lequel est le script
+repertoire_GTFS = repertoire + "/Data brute/gtfs/" 
+repertoire_data_modifiee = repertoire + "/Data modifiée/" 
+repertoire_sorties = repertoire + "/Résultats/"
 print("PHASE D'INTIALISATION")
 
 #Demandes de calculs
@@ -44,7 +44,7 @@ while proj != 'aucun' :
     
 debut_calcul = time.time()
 
-dateref=20190521 #Le mardi 21 mai 2019
+dateref=20220301 #Le mardi 03 mars 2022
 
 def durée(start,end,date=dateref) : 
     date=str(date)
