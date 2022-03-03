@@ -429,7 +429,7 @@ for proj in projets_calcules :
         
 fichier_sortie=open(repertoire_sorties+'AI_projet_'+nom_projet+'_'+mode_projet+'.csv','w')
 fichier_sortie.write("ID;AI;AI_"+nom_projet+'\n')
-for ID in centroides_vus 
+for ID in centroides_vus :
     try :
         AI_bus = ID_to_AI_bus[ID]
     except KeyError : 
