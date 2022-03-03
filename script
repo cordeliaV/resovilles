@@ -223,7 +223,7 @@ with open(repertoire_GTFS+"stops.txt") as stops :
     sortie_stops.close()
    
    #On ajoute les arrêts revérifiés à la main
-    with open(repertoire_data_modifiee+'Arrets_ILEVIA.csv','r') as arrets_verifies :
+    with open(repertoire_data_modifiee+'Arrets.csv','r') as arrets_verifies :
         next(arrets_verifies)
         for ligne in arrets_verifies :
             data=ligne.strip().split(';') 
