@@ -5,6 +5,7 @@ Created on Sun Jul 21 16:53:54 2019
 Algorithme d'extraction des fichiers GTFS permettant, après un traitement externe avec QGIS (matrice des distances), d'obtenir les niveaux de PTAL d'un territoire
 """
 import time
+import datetime
 
 #%% INITIALISATION print(" ----- ") import datetime import time
 from os import path as os_path
@@ -58,9 +59,9 @@ def durée(start,end,date=dateref) :
         minute=int(elems[1]) 
         second=int(elems[2]) 
         if heure == start :
-            depart = datetime.date(year,month,day,hour,minute,second) 
+            depart = datetime.datetime(year,month,day,hour,minute,second) 
         elif heure == end :
-            arrivee = datetime.date(year,month,day,hour,minute,second)
+            arrivee = datetime.datetime(year,month,day,hour,minute,second)
         delta = arrivee - depart 
         return delta
 
