@@ -300,8 +300,8 @@ for proj in projets_calcules :
             ID_to_AI_projet={}
             ID_to_liste_EDF={}
             with open(repertoire_donnees + 'distArrets_'+nom_projet+'.csv','r') as dist_projet :
-                next(dist_projet) l
-                iste_EDF_projet=[] 
+                next(dist_projet) 
+                liste_EDF_projet=[] 
                 ID_old=0
                 for ligne in dist_projet :
                     data=ligne.strip().split(',') 
