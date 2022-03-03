@@ -192,6 +192,7 @@ with open(repertoire_GTFS+"stops.txt") as stops :
         stop_id=data[0] 
         stop_code=data[1] 
         stop_name=data[2] 
+        print(mode)
         stop_lat=data[4]
         stop_lon=data[5]
 
