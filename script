@@ -199,20 +199,21 @@ with open(repertoire_GTFS+"stops.txt") as stops :
             liste_routes=stops_to_routes[stop_id]
         except KeyError : 
             liste_routes=[]
-            mode='NC'
+        
+        mode='NC'
         
         for route in liste_routes :
             route_id=route.split(',')[0] 
             route_type=routes_id_to_types[route_id] 
-            print(print("route_type = " + route_type)
-            if mode == 'NC' :
-                mode = route_type
-            elif int(mode) > int(route_type) :
-                print("/!\ Plusieurs modes pour l'arrêt : "+stop_name) 
-                print(" Priorité au mode le plus lourd : "+route_type) 
-                mode = route_type
-            elif mode == route_type : 
-                mode = route_type
+            mode = route_type
+            #if mode == 'NC' :
+             #   mode = route_type
+            #elif int(mode) > int(route_type) :
+             #   print("/!\ Plusieurs modes pour l'arrêt : "+stop_name) 
+              #  print(" Priorité au mode le plus lourd : "+route_type) 
+               # mode = route_type
+            #elif mode == route_type : 
+             #   mode = route_type
         
         routes=str(liste_routes).strip() 
         routes=routes.strip('[').strip(']')
