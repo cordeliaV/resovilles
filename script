@@ -428,47 +428,47 @@ for proj in projets_calcules :
             ID_old=ID_new #On garde en mémoire le dernier centroïde traité
         
 fichier_sortie=open(repertoire_sorties+'AI_projet_'+nom_projet+'_'+mode_projet+'.csv','w')
-    fichier_sortie.write("ID;AI;AI_"+nom_projet+'\n')
-    for ID in centroides_vus 
-        try :
-            AI_bus = ID_to_AI_bus[ID]
-        except KeyError : 
-            AI_bus = 0.0
-        try :
-            AI_tram = ID_to_AI_tram[ID]
-        except KeyError : 
-            AI_tram = 0.0
-        try :
-            AI_metro = ID_to_AI_metro[ID]
-        except KeyError : 
-            AI_metro = 0.0
-        try :
-            AI_autres = ID_to_AI_autres[ID]
-        except KeyError : 
-            AI_autres = 0.0
-        try:
-            AI_proj = ID_to_AI_projet[ID]
-        except KeyError : 
-            AI_proj = 0.0
-        liste_AI=[AI_bus,AI_tram,AI_metro,AI_autres,AI_proj] 
-        modes=['3','0','1','NC']
-        AI=0.0
-        AI_projet=0.0
-        for mod in modes : 
-            index=modes.index(mod) 
-            if mod == mode_projet :
-                AI+=liste_AI[index]
-                AI_projet+=liste_AI[-1] 
-            else :
-                AI+=liste_AI[index] 
-                AI_projet+=liste_AI[index]
+fichier_sortie.write("ID;AI;AI_"+nom_projet+'\n')
+for ID in centroides_vus 
+    try :
+        AI_bus = ID_to_AI_bus[ID]
+    except KeyError : 
+        AI_bus = 0.0
+    try :
+        AI_tram = ID_to_AI_tram[ID]
+    except KeyError : 
+        AI_tram = 0.0
+    try :
+        AI_metro = ID_to_AI_metro[ID]
+    except KeyError : 
+        AI_metro = 0.0
+    try :
+        AI_autres = ID_to_AI_autres[ID]
+    except KeyError : 
+        AI_autres = 0.0
+    try:
+        AI_proj = ID_to_AI_projet[ID]
+    except KeyError : 
+        AI_proj = 0.0
+    liste_AI=[AI_bus,AI_tram,AI_metro,AI_autres,AI_proj] 
+    modes=['3','0','1','NC']
+    AI=0.0
+    AI_projet=0.0
+    for mod in modes : 
+        index=modes.index(mod) 
+        if mod == mode_projet :
+            AI+=liste_AI[index]
+            AI_projet+=liste_AI[-1] 
+        else :
+            AI+=liste_AI[index] 
+            AI_projet+=liste_AI[index]
   
-        fichier_sortie.write(ID+';'+str(AI)+';'+str(AI_projet)+'\n') 
+    fichier_sortie.write(ID+';'+str(AI)+';'+str(AI_projet)+'\n') 
             
-    fichier_sortie.close()
-    print(" * L'AI a bien été calculé pour le projet "+nom_projet+' ; '+mode_projet) 
-    print("   Les résultats sont disponibles dans le fichier : ")
-    print("   "+repertoire_sorties+'AI_projet_'+nom_projet+'_'+mode_projet+'.csv')
+fichier_sortie.close()
+print(" * L'AI a bien été calculé pour le projet "+nom_projet+' ; '+mode_projet) 
+print("   Les résultats sont disponibles dans le fichier : ")
+print("   "+repertoire_sorties+'AI_projet_'+nom_projet+'_'+mode_projet+'.csv')
         
 print(" ----- ")
 fin_calcul=time.time()
