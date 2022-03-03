@@ -148,7 +148,8 @@ with open(repertoire_GTFS+"stop_times.txt") as stop_times :
                 elif route in heures_depart_routes : 
                     heures_depart_routes[route].append(departure_time)
                     
-sortie_frequence = open(repertoire_sorties+'routes_to_frequence.csv','w') sortie_frequence.write("route_id;sens;frequence"+'\n')
+sortie_frequence = open(repertoire_sorties+'routes_to_frequence.csv','w') 
+sortie_frequence.write("route_id;sens;frequence"+'\n')
 route_to_freq={}
 for route in heures_depart_routes :
     route_id=route[0]
