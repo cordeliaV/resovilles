@@ -191,8 +191,8 @@ with open(repertoire_GTFS+"stops.txt") as stops :
         stop_id=data[0] 
         stop_code=data[1] 
         stop_name=data[2] 
-        stop_lat=data[4] s
-        top_lon=data[5]
+        stop_lat=data[4]
+        stop_lon=data[5]
 
         try : 
             liste_routes=stops_to_routes[stop_id]
