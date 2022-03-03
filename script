@@ -253,7 +253,7 @@ with open(repertoire_GTFS+"stops.txt") as stops :
 print(" ----- ")
 #%% CALCUL DU PTAL
 print("PHASE DE CALCUL DU PTAL")
-repertoire_donnees=repertoire+'\\Data modifiée\\' 
+repertoire_donnees=repertoire+'/Data modifiée/' 
 
 v_map=1.1 #m/s
 
