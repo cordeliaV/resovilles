@@ -62,8 +62,8 @@ def durée(start,end,date=dateref) :
             depart = datetime.datetime(year,month,day,hour,minute,second) 
         elif heure == end :
             arrivee = datetime.datetime(year,month,day,hour,minute,second)
-        delta = arrivee - depart 
-        return delta
+    delta = arrivee - depart 
+    return delta
 
 #%% EXTRACTION DES GTFS
 print("PHASE D'EXTRACTION DES GTFS")
