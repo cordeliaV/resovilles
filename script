@@ -201,7 +201,7 @@ with open(repertoire_GTFS+"stops.txt") as stops :
             liste_routes=[]
             mode='NC'
         
-        print(mode)
+        print(route_type)
         for route in liste_routes :
             route_id=route.split(',')[0] 
             route_type=routes_id_to_types[route_id] 
