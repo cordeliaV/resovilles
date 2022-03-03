@@ -58,9 +58,9 @@ def durée(start,end,date=dateref) :
         minute=int(elems[1]) 
         second=int(elems[2]) 
         if heure == start :
-            depart = datetime.datetime(year,month,day,hour,minute,second) 
+            depart = datetime.date(year,month,day,hour,minute,second) 
         elif heure == end :
-            arrivee = datetime.datetime(year,month,day,hour,minute,second)
+            arrivee = datetime.date(year,month,day,hour,minute,second)
         delta = arrivee - depart 
         return delta
 
