@@ -197,9 +197,10 @@ with open(repertoire_GTFS+"stops.txt") as stops :
 
         try : 
             liste_routes=stops_to_routes[stop_id]
-        except KeyError : liste_routes=[]
-
-        mode='NC'
+        except KeyError : 
+            liste_routes=[]
+            mode='NC'
+            
         for route in liste_routes :
             route_id=route.split(',')[0] 
             route_type=routes_id_to_types[route_id] 
