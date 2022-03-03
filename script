@@ -26,7 +26,7 @@ while proj != 'aucun' :
         if test_freq == 'n' :
             freq=input("Avec quelle(s) fréquence(s) (sep=',') ? "+"\n")
             frequences=freq.split(',') 
-     else :
+    else :
         mod=input("Quel(s) mode(s) souhaitez-vous calculer pour ce projet (sep=',') ?"+"\n") 
         modes=mod.split(',')
         freq=input("Avec quelle(s) fréquence(s) (sep=',') ? "+"\n") 
