@@ -330,7 +330,8 @@ for proj in projets_calcules :
         liste_EDF_tram=[]
         liste_EDF_metro=[] 
         liste_EDF_autres=[] 
-        ID_old=0 unknown_routes=set()
+        ID_old=0 
+        unknown_routes=set()
         for ligne in dist_ilevia :
             data=ligne.strip().split(',') 
             centroide=data[0] 
