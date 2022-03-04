@@ -271,8 +271,8 @@ def calcul_EDF(dist,route_type,freq,v_map=1.1) :
     accessibility = types_to_accessibility[route_type] 
     fiability = types_to_fiability[route_type]
     
-    if dist <= accessibility : #On vérifie que le service est bien accessible S
-        AP=(dist/v_map)/60 #Calcul du Service Access Point en min 
+    if dist <= accessibility : #On vérifie que le service est bien accessible
+        SAP=(dist/v_map)/60 #Calcul du Service Access Point en min 
         SWT=0.5*freq #Calcul du Scheduled Waiting Time
         AWT=fiability #Calcul du Average Waiting Time
         TAT=SAP+SWT+AWT #Calcul du Total Access Time
