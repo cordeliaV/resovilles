@@ -425,6 +425,8 @@ for proj in projets_calcules :
                     liste_EDF_tram.append(EDF)
                 elif route_type == '1' : #La ligne est un métro
                     liste_EDF_metro.append(EDF) 
+                elif route_type == '2' : #La ligne est un train
+                    liste_EDF_train.append(EDF)
                 else : #Le mode n'est pas référencé
                     liste_EDF_autres.append(EDF)
                     print("Mode non référencé : "+route_type) 
