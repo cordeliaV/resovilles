@@ -353,6 +353,7 @@ for proj in projets_calcules :
                 liste_EDF_bus=[]
                 liste_EDF_tram=[]
                 liste_EDF_metro=[]
+                liste_EDF_train=[]
                 liste_EDF_autres=[]
             elif ID_new != ID_old : #Si on change de centroïde
                 #On agrége les listes d'EDF pour chaque mode dans un seul objet 
@@ -400,6 +401,7 @@ for proj in projets_calcules :
                 liste_EDF_bus=[]
                 liste_EDF_tram=[]
                 liste_EDF_metro=[]
+                liste_EDF_train=[]
                 liste_EDF_autres=[]
             #On parcourt la liste des routes passant à cet arrêt 
             for route in liste_routes :
