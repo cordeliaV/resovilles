@@ -261,11 +261,14 @@ types_to_accessibility={} #en mètres
 types_to_accessibility['3']=300.0 #Bus 
 types_to_accessibility['0']=600.0 #Tramway ou métro léger 
 types_to_accessibility['1']=900.0 #Métro
+types_to_accessibility['2']=900.0 #Train
 
 types_to_fiability={} #en minutes 
 types_to_fiability['3']=2.0 #Bus 
 types_to_fiability['0']=1.0 #Tramway ou métro léger 
 types_to_fiability['1']=0.5 #Métro
+types_to_fiability['2']=0.5 #Train
+
 
 def calcul_EDF(dist,route_type,freq,v_map=1.1) : 
     accessibility = types_to_accessibility[route_type] 
