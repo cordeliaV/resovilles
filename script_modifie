@@ -103,7 +103,7 @@ with open(repertoire_GTFS+"trips.txt") as trips :
 
         #Si le service est présent à la date de référence (set services_dateref créé à partir de calendar_dates)
         if service_id in services_dateref :
-            trips_dateref.add(trip_id)  #création set trip_id en service à date réf
+            trips_dateref.add(trip_id)  #création set des trip_id en service à date réf
             if route_id not in routes_dateref : 
                 routes_dateref.add(route_id)  #création d'un set des route_id (si pas encore présent alours ajoute)
                 
@@ -125,7 +125,7 @@ with open(repertoire_GTFS+"stop_times.txt") as stop_times :
         
         #si stop_id pas dans dico des stop_id / routes
         if stop_id not in stops_to_routes : 
-            stops_to_routes[stop_id]=[route]
+            stops_to_routes[stop_id]=[route]  #on enrichit dico des stop_id / routes avec "stop_id + direction"
         elif stop_id in stops_to_routes : 
             routes=stops_to_routes[stop_id] 
             if route not in routes :
@@ -138,7 +138,8 @@ with open(repertoire_GTFS+"stop_times.txt") as stop_times :
                     heures_depart_routes[route]=[departure_time]
                 elif route in heures_depart_routes : 
                     heures_depart_routes[route].append(departure_time)
-                    
+
+#la                    
 sortie_frequence = open(repertoire_sorties+'routes_to_frequence.csv','w') 
 sortie_frequence.write("route_id;sens;frequence"+'\n')
 route_to_freq={}
