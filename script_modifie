@@ -4,7 +4,7 @@
 Algorithme d'extraction des fichiers GTFS permettant, après un traitement externe avec QGIS (matrice des distances), d'obtenir les niveaux de PTAL d'un territoire
 """
 import time
-import datetime
+from datetime import datetime, timezone
 
 #%% INITIALISATION print(" ----- ")
 from os import path as os_path
@@ -32,14 +32,13 @@ print(" ----- ")
     
 debut_calcul = time.time()
 
-dateref=20220301 #Le mardi 03 mars 2022
-print("La date de référence est le " + dateref)
+dateref = datetime.strptime("01/03/22", "%d/%m/%y") #Le mardi 03 mars 2022
+print("La date de référence est le",dateref.day,"/",dateref.month,"/",dateref.year)
 
 def durée(start,end,date=dateref) : 
-    date=str(date)
-    year=int(date[:4]) 
-    month=int(date[4:6]) 
-    day=int(date[6:])
+    year=date.year 
+    month=date.month
+    day=date.day
     for heure in [start,end] :
         elems=heure.split(':') 
         hour=int(elems[0]) 
@@ -54,7 +53,7 @@ def durée(start,end,date=dateref) :
 
 #%% EXTRACTION DES GTFS
 print("PHASE D'EXTRACTION DES GTFS")
-print("La date de référence choisie est le : "+str(dateref))
+print("La date de référence est le",dateref.day,"/",dateref.month,"/",dateref.year)
 
 services_dateref=set()
 with open(repertoire_GTFS+"calendar_dates.txt") as calendar_dates :
