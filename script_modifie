@@ -55,19 +55,22 @@ def durée(start,end,date=dateref) :
 print("PHASE D'EXTRACTION DES GTFS")
 print("La date de référence est le",dateref.day,"/",dateref.month,"/",dateref.year)
 
-services_dateref=set()
+services_dateref=set() #crée un set (collection d'éléments non ordonnés sans doublons)
+#on récupère les éléments de calendar_dates.txt en service pour la date de référence et on les mets dans calendar_dates
 with open(repertoire_GTFS+"calendar_dates.txt") as calendar_dates :
     next(calendar_dates)
     for ligne in calendar_dates :
-        data=ligne.strip().split(',') 
+        data=ligne.strip().split(',') #split enlève les blancs du début et de la fin
         service_id=data[0] 
         date=int(data[1]) 
         exception_type=int(data[2])
         
-        #Si le service a été ajouté à la date de référence 
+        #Si le service a été ajouté à la date de référence (exception_type = 1 -> service dispo pour cette date, si 2 indispo)
         if exception_type == 1 and date == dateref :
             services_dateref.add(service_id)
-            
+
+#on récupère les items de routes.txt et on les met dans routes
+#on fait deux dictionnaires de correspondance route_id / nom court / nom long et route_id / route_types.
 routes_id_to_names={}
 routes_id_to_types={}
 with open(repertoire_GTFS+"routes.txt") as routes :
@@ -94,15 +97,15 @@ with open(repertoire_GTFS+"trips.txt") as trips :
         trip_headsign=data[3] 
         direction=int(data[5])
         
-        #On crée un dico de correspondance entre missions et routes 
-        route_type=routes_id_to_types[route_id] 
-        trips_to_routes[trip_id]=[route_id,direction,route_type,trip_headsign]
+        #On crée un dico de correspondance entre missions et routes : trips_to_routes
+        route_type=routes_id_to_types[route_id] #récupéré grâce au dico route_id / route_type créé plus haut
+        trips_to_routes[trip_id]=[route_id,direction,route_type,trip_headsign] #dico créé à partir de routes et trips
 
-        #Si le service est présent à la date de référence 
+        #Si le service est présent à la date de référence (set services_dateref créé à partir de calendar_dates)
         if service_id in services_dateref :
-            trips_dateref.add(trip_id)
-            if route_id not in routes_dateref :
-                routes_dateref.add(route_id)
+            trips_dateref.add(trip_id)  #création set trip_id en service à date réf
+            if route_id not in routes_dateref : 
+                routes_dateref.add(route_id)  #création d'un set des route_id (si pas encore présent alours ajoute)
                 
 heures_depart_routes={}
 stops_to_routes={}
@@ -115,11 +118,12 @@ with open(repertoire_GTFS+"stop_times.txt") as stop_times :
         stop_id=data[3] 
         stop_sequence=int(data[4])
 
-        route=trips_to_routes[trip_id] 
+        route=trips_to_routes[trip_id] #trips_to_routes[trip_id] : route_id,direction,route_type,trip_headsign
         route_id=route[0]
         direction=route[1] 
-        route=str(route_id)+','+str(direction)
-
+        route=str(route_id)+','+str(direction) #route = route_id,direction
+        
+        #si stop_id pas dans dico des stop_id / routes
         if stop_id not in stops_to_routes : 
             stops_to_routes[stop_id]=[route]
         elif stop_id in stops_to_routes : 
